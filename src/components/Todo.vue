@@ -2,22 +2,40 @@
 import { defineComponent, toRefs, computed } from 'vue'
 
 export default defineComponent({
-	props: ['todo'],
+	props: {
+		id: {
+			type: Number,
+			default: 0
+		},
+		label: {
+			type: String,
+			default: 'No Label'
+		},
+		pinned: {
+			type: Boolean,
+			default: false
+		}
+	},
+
+	emits: ['pin'],
+
 	setup(props, { emit }) {
-		const { todo } = toRefs(props)
+		const { id, label, pinned } = toRefs(props)
 		const imgSrc = computed(() => {
 			const baseImage = '/bookmark'
-			const pinned = todo.value.pinned ? '-pinned' : ''
+			const pinnedLabel = pinned.value ? '-pinned' : ''
 			const ext = '.png'
-			return `${baseImage}${pinned}${ext}`
+			return `${baseImage}${pinnedLabel}${ext}`
 		})
 
-		const onClickPin = (todo) => {
-			emit('pin', todo)
+		const onClickPin = (clickedId) => {
+			emit('pin', clickedId)
 		}
 
 		return {
-			todo,
+			id,
+			label,
+			pinned,
 			imgSrc,
 			onClickPin
 		}
@@ -27,8 +45,8 @@ export default defineComponent({
 
 <template>
 	<div class="todo__wrapper">
-		<p class="todo-label">{{ todo.label }}</p>
-		<img class="todo-bookmark" :src="imgSrc" @click="() => onClickPin(todo)" />
+		<p class="todo-label">{{ label }}</p>
+		<img class="todo-bookmark" :src="imgSrc" @click="() => onClickPin(id)" />
 	</div>
 </template>
 

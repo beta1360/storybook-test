@@ -17,7 +17,7 @@ export default defineComponent({
 			todos: defaultTodos
 		})
 
-		const setPin = ({ id }) => {
+		const setPin = (id) => {
 			state.todos = state.todos.map((item) => {
 				if (item.id === id) item.pinned = !item.pinned
 				return item

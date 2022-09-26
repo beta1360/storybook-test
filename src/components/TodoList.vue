@@ -5,8 +5,8 @@ import { defineComponent, toRefs } from 'vue'
 export default defineComponent({
 	props: ['todos'],
 	setup(props, { emit }) {
-		const onClickPin = (todo) => {
-			emit('pin', todo)
+		const onClickPin = (id) => {
+			emit('pin', id)
 		}
 
 		const addTodo = () => {
@@ -27,7 +27,14 @@ export default defineComponent({
 
 <template>
 	<div class="todos__wrapper">
-		<Todo v-for="item in todos" :key="item.id" :todo="item" @pin="onClickPin" />
+		<Todo
+			v-for="item in todos"
+			:key="item.id"
+			@pin="onClickPin"
+			:id="item.id"
+			:pinned="item.pinned"
+			:label="item.label"
+		/>
 		<button class="todos-adder" @click="addTodo">
 			<img src="/add-button.png" />
 		</button>
