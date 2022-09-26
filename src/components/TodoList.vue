@@ -51,7 +51,7 @@ export default defineComponent({
 }
 .todos-adder {
 	width: 100%;
-	background-color: #fff;
+	background-color: transparent;
 	border: 0;
 	margin-top: 20px;
 	cursor: pointer;
