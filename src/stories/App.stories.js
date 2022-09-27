@@ -2,7 +2,7 @@ import App from '../App.vue'
 
 export default {
   components: { App },
-  title: 'Example/App'
+  title: 'Example/TodoList/App'
 }
 
 const Template = (args) => ({

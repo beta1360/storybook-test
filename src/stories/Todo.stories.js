@@ -2,7 +2,8 @@ import Todo from '../components/Todo.vue'
 
 export default {
   components: { Todo },
-  title: 'Example/Todo'
+  title: 'Example/TodoList/Todo',
+  click: {}
 }
 
 const Template = (args) => ({
@@ -29,3 +30,10 @@ export const NoLabelTodo = Template.bind({});
 NoLabelTodo.args = {
   pinned: false
 }
+
+export const DecoratorTodo = Template.bind({});
+DecoratorTodo.args = {
+  pinned: false,
+  label: '스토리북1',
+}
+DecoratorTodo.decorators = [() => ({ template: '<div style="margin: 30px;"><story /></div>' })]

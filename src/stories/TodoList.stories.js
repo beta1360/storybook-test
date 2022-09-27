@@ -10,7 +10,7 @@ const defaultTodos = [
 
 export default {
   components: { TodoList },
-  title: 'Example/TodoList'
+  title: 'Example/TodoList/TodoList'
 }
 
 const Template = (args) => ({
