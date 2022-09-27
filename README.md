@@ -13,6 +13,11 @@
 - 개발자들끼리는 컴포넌트의 메뉴얼의 역할
 - 디자이너와는 커뮤니케이션 도구의 역할
 
+### Storybook을 사용하면서 생기는 장점
+- 컴포넌트 문서화를 통해 다른 직군과의 커뮤니케이션이 용이해짐
+- 컴포넌트 자체로 테스트가 가능해짐 (SDD)
+- 컴포넌트 테스트를 위한 컴포넌트 작성이 가능해짐 (*)
+
 ## Storybook 초기 설정 방법
 
 ### 설치
@@ -26,3 +31,12 @@ npx storybook init
 ```bash
 npm run storybook
 ```
+
+## Storybook의 기능/특징
+- Args
+- Parameter
+- Decorator
+- Play Function
+- Nameing components and hierachy
+- MDX
+- Addon

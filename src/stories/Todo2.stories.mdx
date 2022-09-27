@@ -1,0 +1,43 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import Todo from '../components/Todo.vue'
+
+<Meta title="MDX/TodoList/Todo" component={Todo} />
+
+export const Template = (args) => ({
+  components: { Todo },
+  setup () {
+    return { args }
+  },
+  template: '<Todo v-bind="$props" />',
+});
+
+# Todo
+
+With `MDX`, we can define a story for `Todo` right in the middle of our
+Markdown documentation.
+
+<Canvas>
+  <Story 
+    name="Basic"
+    args={{ 
+      label: 'Unpinned',
+      pinned: false
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Canvas > Story > Component bind
+
+<Canvas>
+  <Story 
+    name="Pinned"
+    args={{ 
+      label: 'Pinned',
+      pinned: true
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Other story with canvas
